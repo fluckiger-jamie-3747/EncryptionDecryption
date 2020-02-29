@@ -1,2 +1,53 @@
 Hello World
-Commit
+#https://www.youtube.com/watch?v=9-Yw434IbVM
+
+def encrypt(sentence):
+
+    result = []
+
+    for letter in sentence:
+
+        l_var = ord(letter) - 200
+        result.append(l_var)
+
+    print("This is your encrypted password!")
+    for numbers in result:
+          print(numbers, end='')
+          print(" ",end='')
+          
+    print()
+#save result (encrypted password) to file
+#user name is file name, read encrypted file password
+#run input through decryped result, if
+
+    decrypt(result)
+
+def decrypt(result):
+
+    end_string = ""
+
+    for numbers in result:
+
+        l_var = int(numbers)
+        l_var = l_var + 200
+        l_var = chr(l_var)
+        end_string = end_string + l_var
+    print("Your decrypted message is: ")
+    print(end_string)
+
+def CreateUser():
+    passw = encrypt(password)
+    with open("username.py","w+") as f:
+        f.write("This is a encrypted password {}".format(passw))
+        print(f.readlines())
+        f.close()
+
+def main():
+
+    s = input("input a senctence to encrypt: ")
+    encrypt(s)
+    CreateUser()
+
+
+if __name__ == '__main__':
+    main()
